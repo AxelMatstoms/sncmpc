@@ -1,98 +1,52 @@
-man {#man align="center"}
-===
+man(1)                                     sncmpc man page                                     man(1)
 
-[NAME](#NAME)\
-[SYNOPSIS](#SYNOPSIS)\
-[DESCRIPTION](#DESCRIPTION)\
-[OPTIONS](#OPTIONS)\
-[EXIT STATUS](#EXIT%20STATUS)\
-[ENVIRONMENT](#ENVIRONMENT)\
-[SEE ALSO](#SEE%20ALSO)\
+NAME
+       sncmpc - simple ncurses music player client
 
-------------------------------------------------------------------------
+SYNOPSIS
+       sncmpc [OPTION]...
 
-NAME []{#NAME}
---------------
+DESCRIPTION
+       sncmpc is a small, efficient and simple ncurses client for mpd.
 
-sncmpc − simple ncurses music player client
+OPTIONS
+       -h, --host=HOST
+              Connect to HOST instead of host defined in config.h
 
-SYNOPSIS []{#SYNOPSIS}
-----------------------
+       -p, --port=PORT
+              Connect to PORT instead of port defined in config.h
 
-+-------------+-------------+-------------+-------------+-------------+
-|             | **sncmpc**  |             | \[*OPTION*\ |             |
-|             |             |             | ]\...       |             |
-+-------------+-------------+-------------+-------------+-------------+
+       -t, --timeout=TIMEOUT
+              Use TIMEOUT ms as timeout instead of timeout defined in config.h
 
-DESCRIPTION []{#DESCRIPTION}
-----------------------------
+       -?, --help
+              Display a help message and exit
 
-sncmpc is a small, efficient and simple ncurses client for mpd.
+       --usage
+              Display a short usage message and exit
 
-OPTIONS []{#OPTIONS}
---------------------
+       -V, --version
+              Display program version and exit
 
-**−h**, **−−host**=*HOST*
+EXIT STATUS
+       0      if OK,
 
-Connect to *HOST* instead of host defined in config.h
+       1      if connection to mpd could not be made,
 
-**−p**, **−−port**=*PORT*
+       2      if arguments or environment variables have illegal values (such as $SNCMPC_PORT=-1).
 
-Connect to *PORT* instead of port defined in config.h
+ENVIRONMENT
+       All  environment  variables  are overridden by respective command line options but do override
+       the defaults specified in config.h. If environment variables contain illegal values  an  error
+       is printed to stderr followed by the program exiting with status 2.
 
-**−t**, **−−timeout**=*TIMEOUT*
+       SNCMPC_HOST
+              Connect to specified host. See option --host.
 
-Use *TIMEOUT* ms as timeout instead of timeout defined in config.h
+       SNCMPC_PORT
+              Connect with specified port. See option --port.
 
-**−?**, **−−help**
+SEE ALSO
+       mpc(1), mpd(1), ncmpcpp(1)
 
-Display a help message and exit
-
-**−−usage**
-
-Display a short usage message and exit
-
-**−V**, **−−version**
-
-Display program version and exit
-
-EXIT STATUS []{#EXIT STATUS}
-----------------------------
-
-+-----------------+-----------------+-----------------+-----------------+
-|                 | 0               |                 | if OK,          |
-+-----------------+-----------------+-----------------+-----------------+
-|                 | 1               |                 | if connection   |
-|                 |                 |                 | to mpd could    |
-|                 |                 |                 | not be made,    |
-+-----------------+-----------------+-----------------+-----------------+
-|                 | 2               |                 | if arguments or |
-|                 |                 |                 | environment     |
-|                 |                 |                 | variables have  |
-|                 |                 |                 | illegal values  |
-|                 |                 |                 | (such as        |
-|                 |                 |                 | \$SNCMPC\_PORT= |
-|                 |                 |                 | -1).            |
-+-----------------+-----------------+-----------------+-----------------+
-
-ENVIRONMENT []{#ENVIRONMENT}
-----------------------------
-
-All environment variables are overridden by respective command line
-options but do override the defaults specified in config.h. If
-environment variables contain illegal values an error is printed to
-stderr followed by the program exiting with status 2. **\
-SNCMPC\_HOST**
-
-Connect to specified host. See option *−−host*.
-
-**SNCMPC\_PORT**
-
-Connect with specified port. See option *−−port*.
-
-SEE ALSO []{#SEE ALSO}
-----------------------
-
-mpc(1), mpd(1), ncmpcpp(1)
-
-------------------------------------------------------------------------
+0.1.0                                        15 Nov 2018                                       man(1)
