@@ -1,0 +1,45 @@
+.TH man 1 "15 Nov 2018" "0.1.0" "sncmpc man page"
+.SH NAME
+sncmpc \- simple ncurses music player client
+.SH SYNOPSIS
+.SY sncmpc
+.RI [ OPTION ]...
+.YS
+.SH DESCRIPTION
+sncmpc is a small, efficient and simple ncurses client for mpd.
+.SH OPTIONS
+.TP
+\fB\-h\fR, \fB\-\-host\fR=\fIHOST\fR
+Connect to \fIHOST\fR instead of host defined in config.h
+.TP
+\fB\-p\fR, \fB\-\-port\fR=\fIPORT\fR
+Connect to \fIPORT\fR instead of port defined in config.h
+.TP
+\fB\-t\fR, \fB\-\-timeout\fR=\fITIMEOUT\fR
+Use \fITIMEOUT\fR ms as timeout instead of timeout defined in config.h
+.TP
+\fB\-?\fR, \fB\-\-help\fR
+Display a help message and exit
+.TP
+\fB\-\-usage\fR
+Display a short usage message and exit
+.TP
+\fB\-V\fR, \fB\-\-version\fR
+Display program version and exit
+.SH EXIT STATUS
+.IP 0
+if OK,
+.IP 1
+if connection to mpd could not be made,
+.IP 2
+if arguments or environment variables have illegal values (such as $SNCMPC_PORT=-1).
+.SH ENVIRONMENT
+All environment variables are overridden by respective command line options but do override the defaults specified in config.h. If environment variables contain illegal values an error is printed to stderr followed by the program exiting with status 2.
+.TP
+.B SNCMPC_HOST
+Connect to specified host. See option \fI\-\-host\fR.
+.TP
+.B SNCMPC_PORT
+Connect with specified port. See option \fI\-\-port\fR.
+.SH SEE ALSO
+mpc(1), mpd(1), ncmpcpp(1)
